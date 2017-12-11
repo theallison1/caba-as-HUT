@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">comboanidado</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="localidad" view="colnames">
+<left>166</left>
+<top>102</top>
+<width>116</width>
+<height>124</height>
+<sql_create_table>CREATE TABLE `localidad` (
+  `id_localidad` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `fk_provincia` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_localidad`),
+  KEY `fk_provincia` (`fk_provincia`),
+  CONSTRAINT `localidad_ibfk_1` FOREIGN KEY (`fk_provincia`) REFERENCES `provincia` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="pais" view="colnames">
+<left>537</left>
+<top>132</top>
+<width>90</width>
+<height>107</height>
+<sql_create_table>CREATE TABLE `pais` (
+  `id_pais` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_pais`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="provincia" view="colnames">
+<left>376</left>
+<top>224</top>
+<width>90</width>
+<height>124</height>
+<sql_create_table>CREATE TABLE `provincia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `fk_pais` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_pais` (`fk_pais`),
+  CONSTRAINT `provincia_ibfk_1` FOREIGN KEY (`fk_pais`) REFERENCES `pais` (`id_pais`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
