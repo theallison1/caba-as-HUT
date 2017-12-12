@@ -55,37 +55,66 @@ public class BaseDeDatos
  
   
     
-  
-    
-      public boolean  getUsuario(Usuario usuario){
-          
-         
-         
-            estableceConexion();
-      
-   String sql="SELECT * FROM personas WHERE nom_usuario ='"+log.txt_usuario.getText()+"' AND pass='"+log.txt_contraseña.getText()+"'";
-   
-   
+    public boolean dameDatos(String nom_user, String pass) {
+
+        estableceConexion();
+        String sql = "SELECT * FROM personas WHERE nom_usuario ='" + nom_user + "' AND pass='" + pass + "'";
+
         try {
-  
-     
+
             st = conexion.createStatement();
-            
+
             rs = st.executeQuery(sql);
-   
-           System.out.println("se ejecuto");
-           
+
+            System.out.println("se ejecuto");
+
             return rs.first();
 
         } catch (Exception e) {
 
         }
-       
         return false;
-         
-       
     }
-  
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//      public boolean  getUsuario(Usuario usuario){
+//          
+//         
+//         
+//            estableceConexion();
+//      
+//   String sql="SELECT * FROM personas WHERE nom_usuario ='"+log.txt_usuario.getText()+"' AND pass='"+log.txt_contraseña.getText()+"'";
+//   
+//   
+//        try {
+//  
+//     
+//            st = conexion.createStatement();
+//            
+//            rs = st.executeQuery(sql);
+//   
+//           System.out.println("se ejecuto");
+//           
+//            return rs.first();
+//
+//        } catch (Exception e) {
+//
+//        }
+//       
+//        return false;
+//         
+//       
+//    }
+//  
     /** Cierra la conexión con la base de datos */
     public void cierraConexion()
     {

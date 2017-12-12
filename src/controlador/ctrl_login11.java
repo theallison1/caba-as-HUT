@@ -81,7 +81,7 @@ public class ctrl_login11 implements interfaceValidacion1{
         
             System.out.println("entre");
            
-            if (conecxion.getUsuario(usuario)) {
+            if (conecxion.dameDatos(user,pass)) {
                 JOptionPane.showMessageDialog(null, "entrando al sistema");
                 
               
